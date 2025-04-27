@@ -1,7 +1,9 @@
+import { Typography } from "@mui/material";
+
 export const Lesson = () => (
   <article>
-    <h1>Cours de piano disponibles dès maintenant !</h1>
-    <h2>Bagnères de Bigorre</h2>
+    <Typography variant="h1">Cours de piano disponibles dès maintenant !</Typography>
+    <Typography variant="h2">Bagnères de Bigorre</Typography>
     <p>
       Je suis une pianiste expériementée offrant des cours de piano
       personnalisés pour tous les âges et tous les niveaux.

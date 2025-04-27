@@ -1,28 +1,24 @@
-import { useState } from "react";
-import "./App.css";
-import { Header } from "./components/header";
+import { useApp } from "./App.hooks";
+import { AppSlot } from "./App.slots";
 import { Footer } from "./components/footer";
-import { Book } from "./pages/book";
-import { JSX } from "@emotion/react/jsx-runtime";
-import { styled } from "@mui/system";
-
-const AppSlot = styled("div")(() => ({
-  minHeight: "100%",
-  display: "grid",
-  gridTemplateRows: "auto 1fr auto",
-}));
+import { Header } from "./components/header";
 
 const App = () => {
-  const [page, setPage] = useState(<Book />);
-
-  const handlePageChange = (page: JSX.Element) => () => {
-    setPage(page);
-  };
+  const { state, handleClick } = useApp();
 
   return (
-    <AppSlot>
-      <Header pageChange={handlePageChange} />
-      {page}
+    <AppSlot
+      sx={{
+        height: "100vh",
+        width: "100%",
+        maxWidth: "1280px",
+        margin: "0 auto",
+        textAlign: "center",
+      }}
+      data-testid="App"
+    >
+      <Header handleClick={handleClick} />
+      {state.currentPage}
       <Footer />
     </AppSlot>
   );
