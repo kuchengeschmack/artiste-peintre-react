@@ -1,10 +1,21 @@
+/**
+ * @jest-environment jsdom
+ */
+import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-describe("App component", () => {
-  it("should render correctly", () => {
-    render(App());
+jest.mock("./App.hooks", () => ({
+  useApp: jest.fn(() => ({
+    state: { currentPage: <></> },
+    handleClick: () => {},
+  })),
+}));
 
-    expect(screen.getByTestId("App")).toBeDefined()
+describe("App component", () => {
+  it("should render correctly", async () => {
+    await render(<App />);
+    
+    expect(screen.getByTestId("App")).toBeDefined();
   });
 });
