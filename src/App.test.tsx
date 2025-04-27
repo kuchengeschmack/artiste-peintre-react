@@ -5,17 +5,17 @@ import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
 import App from "./App";
 
-jest.mock("./App.hooks", () => ({
+jest.mock("./App.hook", () => ({
   useApp: jest.fn(() => ({
     state: { currentPage: <></> },
-    handleClick: () => {},
+    handlePageChange: jest.fn(() => {}),
   })),
 }));
 
 describe("App component", () => {
-  it("should render correctly", async () => {
-    await render(<App />);
-    
+  it("should render correctly", () => {
+    render(<App />);
+
     expect(screen.getByTestId("App")).toBeDefined();
   });
 });

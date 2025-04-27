@@ -1,10 +1,10 @@
-import { useApp } from "./App.hooks";
-import { AppSlot } from "./App.slots";
-import { Footer } from "./components/footer";
-import { Header } from "./components/header";
+import { useApp } from "./App.hook";
+import { AppSlot } from "./App.slot";
+import { Footer } from "./components/footer/footer";
+import { Header } from "./components/header/header";
 
 const App = () => {
-  const { state, handleClick } = useApp();
+  const { state, handlePageChange } = useApp();
 
   return (
     <AppSlot
@@ -17,7 +17,7 @@ const App = () => {
       }}
       data-testid="App"
     >
-      <Header handleClick={handleClick} />
+      <Header handlePageChange={handlePageChange} />
       {state.currentPage}
       <Footer />
     </AppSlot>

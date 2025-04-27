@@ -1,6 +1,6 @@
 import { useReducer } from "react";
-import { changePageReducer } from "./App.reducers";
-import { AppState } from "./App.types";
+import { changePageReducer } from "./App.reducer";
+import { AppState, Pages } from "./App.types";
 import { Book } from "./pages/book";
 
 export const useApp = () => {
@@ -11,8 +11,8 @@ export const useApp = () => {
    * Dispatches an action to the state to change page
    * @param page - page name
    */
-  const handleClick = (page: string) =>
-    dispatch({ type: `change page to ${page}`, payload: page });
+  const handlePageChange = (page: Pages) =>
+    dispatch({ type: `root to ${page}`, payload: page });
 
-  return { state, handleClick };
+  return { state, handlePageChange };
 };
