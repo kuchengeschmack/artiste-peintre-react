@@ -1,4 +1,4 @@
-import { Actions, AppState, PageChangeAction } from "./App.types";
+import { ACTIONS, AppState, PageChangeAction } from "./App.types";
 import { Book } from "./pages/book";
 import { Lesson } from "./pages/lesson";
 
@@ -14,10 +14,10 @@ export const changePageReducer = (
   console.log("Dispatch action to state", action);
 
   switch (action.type) {
-    case Actions.BOOK: {
+    case ACTIONS.BOOK: {
       return { ...state, currentPage: STORE.BOOK };
     }
-    case Actions.LESSON: {
+    case ACTIONS.LESSON: {
       return { ...state, currentPage: STORE.LESSON };
     }
     default: {
